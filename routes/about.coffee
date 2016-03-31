@@ -1,6 +1,6 @@
 "use strict";
 
-RouteProvider = require('../../source/core/RouteProvider')
+RouteProvider = require('../core/RouteProvider')
 
 class about  extends RouteProvider.RouteProvider
   constructor: () ->

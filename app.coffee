@@ -15,30 +15,28 @@ class Application
 
   initializeErrorHandling: () ->
     @logger.debug('Application::initializeErrorHandling')
-    localLogger = @logger
-#    @application.use((req, res, next) ->
-#      err = new Error('Not Found')
-#      err.status = 404
-#      next(err)
-#    )
-#
-#    if @application.get('env') == 'development'
-#      @application.use((err, req, res) ->
-#        res.status(err.status || 500)
-#        res.render('error', {
-#          message: err.message,
-#          error: err
-#        })
-#      )
-#
-#    @application.use((err, req, res) ->
-#      localLogger.debug("ERROR HANDLER: #{err.message}")
-#      res.status(err.status || 500)
-#      res.render('error', {
-#        message: err.message,
-#        error: {}
-#      })
-#    )
+    @application.use((err, req, res, next) ->
+      err = new Error('Not Found')
+      err.status = 404
+      next(err)
+    )
+
+    if @application.get('env') == 'development'
+      @application.use((err, req, res, next) ->
+        res.status(err.status || 500)
+        res.render('error', {
+          message: err.message,
+          error: err
+        })
+      )
+
+    @application.use((err, req, res, next) ->
+      res.status(err.status || 500)
+      res.render('error', {
+        message: err.message,
+        error: {}
+      })
+    )
 
   initializeLogging: () ->
     @logger.debug('Application::initializeLogging')
@@ -77,8 +75,9 @@ class Application
 
   initializeStatics: () ->
     @logger.debug('Application::initializeStatics')
+    bootstrapPath = "#{__dirname}/node_modules/bootstrap/dist"
     @application.use(express.static(path.join(__dirname, 'public')))
-    @application.use('/bootstrap', express.static("#{__dirname}/node_modules/bootstrap/dist"))
+    @application.use('/bootstrap', express.static(bootstrapPath))
 
   initializeViewEngine: () ->
     @logger.debug('Application::initializeViewEngine')

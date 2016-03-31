@@ -1,7 +1,7 @@
 "use strict";
 
 chai = require('chai')
-routeRegistrar = require('../source/core/RouteRegistrar')
+routeRegistrar = require('../core/RouteRegistrar')
 
 expect = chai.expect
 

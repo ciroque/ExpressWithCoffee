@@ -2,7 +2,7 @@
 
 chai = require('chai')
 loggingSink = require('./TestLoggingSink')
-logging = require('../source/core/Logger')
+logging = require('../core/Logger')
 
 expect = chai.expect
 
