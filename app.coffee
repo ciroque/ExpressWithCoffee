@@ -66,10 +66,12 @@ class Application
     routeRegistrar = require('./core/RouteRegistrar')
     registrar = new routeRegistrar.RouteRegistrar()
     registrar.findModules("#{__dirname}/routes", (err, dirInfo) ->
-      selfLogger.debug('Application::initializeRoutes registrar.findModules')
+      selfLogger.debug('registrar.findModules')
       registrar.retrieveRoutesFromModules(dirInfo, (err, routes) ->
-        selfLogger.debug("Application::initializeRoutes -> registrar.findModules -> registrar.retrieveRoutesFromModules #{JSON.stringify(routes)}")
-        selfApp.use(route.path, route.handler.router) for route in routes
+        selfLogger.debug("registrar.retrieveRoutesFromModules #{JSON.stringify(routes)}")
+        registrar.registerRoutesWithApp(selfApp, routes, (err) ->
+          selfLogger.debug("registrar.registerRoutesWithApp err => #{err}")
+        )
       )
     )
 

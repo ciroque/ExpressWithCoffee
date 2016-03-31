@@ -7,11 +7,6 @@ class RouteTwo extends RouteProvider.RouteProvider
     @path = "/TWO"
     @logger = opts.logger || new logging.Logger()
 
-#  retrieveRoutes: (routes) ->
-#    @logger.debug("RouteTwo::retrieveRoutes")
-#    routes.push("Two:One")
-#    routes.push("Two:Two")
-
 module.exports = {
   RouteTwo: RouteTwo
 }
