@@ -1,6 +1,6 @@
 
-logging = require('../../source/core/Logger')
-RouteProvider = require('../../source/core/RouteProvider')
+logging = require('../../core/Logger')
+RouteProvider = require('../../core/RouteProvider')
 
 class RouteOne extends RouteProvider.RouteProvider
   constructor: (opts) ->
