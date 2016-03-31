@@ -1,0 +1,25 @@
+{
+  "name": "__PROJECT_NAME__",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "latest",
+    "cookie-parser": "latest",
+    "debug": "latest",
+    "express": "latest",
+    "jade": "latest",
+    "morgan": "latest",
+    "node-sass-middleware": "latest",
+    "serve-favicon": "latest",
+    "pg": "latest",
+    "bootstrap": "latest",
+    "db-migrate": "latest",
+    "graceful-fs": "latest",
+    "mocha": "latest",
+    "coffee-script": "latest",
+    "chai": "latest"
+  }
+}

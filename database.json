@@ -1,0 +1,9 @@
+{
+  "dev": {
+    "driver": "pg",
+    "user": "postgres",
+    "password": "Password23",
+    "host": "localhost",
+    "database": "__PROJECT_NAME__"
+  }
+}
